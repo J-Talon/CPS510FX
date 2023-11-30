@@ -30,6 +30,6 @@ public class Tuple4<A,B,C,D> {
     }
 
     public void display() {
-        System.out.println("A: "+a+" B:"+b+" C:"+c+" D:"+d);
+        System.out.println(""+a+" "+b+" "+c+" "+d);
     }
 }

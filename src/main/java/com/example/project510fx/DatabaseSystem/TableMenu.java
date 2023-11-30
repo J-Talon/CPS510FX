@@ -9,29 +9,20 @@ import java.util.List;
 
 public class TableMenu {
 
-    public static void createTables() {
-        try {
+    public static void createTables() throws Exception {
+
             ResourceManager manager = ResourceManager.getInstance();
             List<String> commands = manager.getTableCreateCommands();
             DatabaseConnection.completeManyUpdates(commands);
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 
 
+    public static void deleteTables() throws Exception {
 
-
-    public static void deleteTables() {
-     try {
          ResourceManager manager = ResourceManager.getInstance();
          List<String> commands = manager.getDropTableCommands();
          DatabaseConnection.completeManyUpdates(commands);
-     }
-     catch (Exception e) {
-         System.out.println(e.getMessage());
-     }
+
     }
 
 

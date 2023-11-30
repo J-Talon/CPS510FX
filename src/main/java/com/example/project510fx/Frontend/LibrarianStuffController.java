@@ -4,10 +4,9 @@ package com.example.project510fx.Frontend;
 import com.example.project510fx.DatabaseSystem.LibrarySystem;
 import com.example.project510fx.DatabaseSystem.QueryMenu;
 import com.example.project510fx.DatabaseSystem.TableMenu;
-import com.example.project510fx.Entities.Librarian;
+
+import com.example.project510fx.Entities.Media;
 import com.example.project510fx.Entities.Transaction;
-import com.example.project510fx.Util.DatabaseConnection;
-import com.example.project510fx.DatabaseSystem.LibrarySystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,57 +36,151 @@ public class LibrarianStuffController {
 
     @FXML
     private void executeQuery1(ActionEvent event) {
-        List<Util.Tuple4<Integer, String, String, Double >> list = QueryMenu.owningMembers();
-        resultTextArea.appendText("Q1");
+        try {
+            List<Util.Tuple4<Integer, String, String, Double>> list = QueryMenu.owningMembers();
 
-    }    @FXML
+
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
+
+    }
+
+    @FXML
     private void executeQuery2(ActionEvent event) {
         List<Util.Tuple3<String, String, String>> list = QueryMenu.listEveryone();
         resultTextArea.appendText("Q1");
-}    @FXML
+}
+
+
+@FXML
     private void executeQuery3(ActionEvent event) {
-        List<Util.Tuple3<Integer, Integer, String>> list = QueryMenu.goodReview();
-        for (Util.Tuple3 t: list) {
-            resultTextArea.appendText(t.toString()+"\n");
+
+        try {
+            List<Util.Tuple3<Integer, Integer, String>> list = QueryMenu.goodReview();
+
+            if (list == null) {
+                resultTextArea.setText("Error occurred");
+              return;
+            }
+
+            resultTextArea.setText("");
+            for (Util.Tuple3<?, ?, ?> t : list) {
+                resultTextArea.appendText(t.toString() + "\n");
+            }
         }
+        catch (Exception e) {
+            resultTextArea.appendText(e.getMessage());
+        }
+
 
     }    @FXML
     private void executeQuery4(ActionEvent event) {
-        List<Transaction> list = QueryMenu.expiredJan20();
-        resultTextArea.appendText("Q1");
-    }    @FXML
+        try {
+            List<Transaction> list = QueryMenu.expiredJan20();
+            resultTextArea.setText("");
+            for (Transaction t: list) {
+                resultTextArea.appendText(t.toString() +"\n");
+            }
+
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
+
+    }
+
+
+    @FXML
     private void executeQuery5(ActionEvent event) {
-        Map<String, Integer> map = QueryMenu.mediaCount();
-        resultTextArea.appendText("Q1");
-    }    @FXML
+
+        resultTextArea.setText("");
+        try {
+            Map<String, Integer> map = QueryMenu.mediaCount();
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                String s = entry.getKey() +" "+ entry.getValue() +"\n";
+                resultTextArea.appendText(s);
+            }
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
+    }
+
+
+    @FXML
     private void executeQuery6(ActionEvent event) {
-        Map<Integer, String[]> map = QueryMenu.mediaInStock();
-        resultTextArea.appendText("Q1");
+
+        try {
+            Map<Integer, String[]> map = QueryMenu.mediaInStock();
+
+            for (String[] array : map.values()) {
+
+                StringBuilder b = new StringBuilder("");
+                for (String s : array) {
+                    b.append(s).append(" ");
+                }
+
+                resultTextArea.appendText(b.toString());
+            }
+        }
+        catch (Exception e) {
+            resultTextArea.setText("Error:"+e.getMessage());
+        }
     }
 
     @FXML
     private void getMediaTitle(ActionEvent event) {
         String key = keywords.getText();
-        system.getMediaByTitle(key);
+        Map<Integer, Media> media = system.getMediaByTitle(key);
+
+        if (media == null) {
+            resultTextArea.setText("Error occurred.");
+            return;
+        }
+
+        resultTextArea.setText("");
+        for (Media m: media.values()) {
+            resultTextArea.appendText(m.toString()+"\n");
+        }
+
     }
     @FXML
     private void createTable(ActionEvent event) {
-        TableMenu.createTables();
+        try {
+            TableMenu.createTables();
+            resultTextArea.setText("Tables created.");
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
     }
 
 
     @FXML
     private void dropTable(ActionEvent event) {
-        TableMenu.deleteTables();
-        System.out.println("Done");
+        try {
+            TableMenu.deleteTables();
+            resultTextArea.setText("Tables dropped.");
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
     }    @FXML
     private void populate(ActionEvent event) {
-        TableMenu.populateTables();
-        System.out.println("Done");
+        try {
+            TableMenu.populateTables();
+            resultTextArea.setText("Tables populated.");
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
     }
+
         @FXML
     private void addAndRemoveData (ActionEvent event) {
 
-        }
+    }
 }
 

@@ -43,7 +43,7 @@
    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0">
       <children>
          <TextField fx:id="keywords" prefHeight="26.0" prefWidth="335.0" promptText="Input a media title" />
-         <Button mnemonicParsing="false" onAction="getMediaTitle" prefHeight="26.0" prefWidth="155.0" text="Media Search">
+         <Button mnemonicParsing="false" onAction="#getMediaTitle" prefHeight="26.0" prefWidth="155.0" text="Media Search">
             <font>
                <Font name="Calibri" size="12.0" />
             </font>

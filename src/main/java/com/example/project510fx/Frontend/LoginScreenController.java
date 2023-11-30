@@ -1,21 +1,16 @@
 package com.example.project510fx.Frontend;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import com.example.project510fx.DatabaseSystem.LibrarySystem;
 import com.example.project510fx.Entities.Member;
+import com.example.project510fx.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -50,7 +45,7 @@ public class LoginScreenController {
                     Stage stage = (Stage) button_signin.getScene().getWindow();
                     stage.close();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Frontend/LibrarianStuff.fxml"));
+                    FXMLLoader loader = new FXMLLoader(Main.class.getClassLoader().getResource("LibrarianStuff.fxml"));
                     Parent root = loader.load();
                     stage.setScene(new Scene(root));
                     stage.show();

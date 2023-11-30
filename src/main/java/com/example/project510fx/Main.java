@@ -26,7 +26,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource("LibrarianStuff.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource("LoginScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Library System");
         stage.setScene(scene);
@@ -38,7 +38,7 @@ public class Main extends Application {
 
        launch(args);
 
-//        Scanner scanner = new Scanner(System.in);
+   //     Scanner scanner = new Scanner(System.in);
 //        try {
 //
 //            while (true) {
@@ -60,7 +60,7 @@ public class Main extends Application {
 
     }
 
-    public static void processInput(String s) {
+    public static void processInput(String s) throws Exception {
         s = s.toLowerCase();
         char choice = s.charAt(0);
 

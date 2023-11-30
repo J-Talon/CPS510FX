@@ -30,7 +30,7 @@ public class LibrarySystem {
 
      Tested.
      */
-    public int nextId(String tableName, String idName) {
+    public static int nextId(String tableName, String idName) {
         try {
             QueryId process = new QueryId(idName);
             DatabaseConnection.completeQuery("SELECT "+idName+" FROM "+tableName, process);
@@ -149,7 +149,6 @@ public class LibrarySystem {
             return process.getMedia();
         }
         catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }

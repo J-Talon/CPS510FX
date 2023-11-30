@@ -6,6 +6,7 @@ import Util.Tuple3;
 import com.example.project510fx.Entities.Transaction;
 import com.example.project510fx.Util.DatabaseConnection;
 import com.example.project510fx.Util.Queries.*;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
@@ -16,21 +17,16 @@ public class QueryMenu {
 
 // HISTORYID PICKUPDAT EXPIREDAT     STATUS      MEMID    MEDIAID
     public static List<Transaction> expiredJan20() {
-        try {
+
             QueryExpiredJan20 process = new QueryExpiredJan20();
             String query = "SELECT * From transactionDetails Where expiredate > TO_DATE('2023-01-20','RRRR-MM-DD') ORDER by ExpireDate Desc";
             DatabaseConnection.completeQuery(query, process);
             return process.getTransactionList();
-        }
-        catch (Exception e) {
-            System.out.println("Error fetching data");
-            return null;
-
-        }
     }
 
 
     ///Libid, stars, comments
+    @Nullable
     public static List<Tuple3<Integer, Integer, String>> goodReview () {
         try {
            QueryGoodReviews process =  new QueryGoodReviews();
@@ -39,10 +35,7 @@ public class QueryMenu {
             return process.getFeedbackList();
         }
         catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error fetching data");
-            return null;
-
+            throw new IllegalStateException("Error fetching data: "+e.getMessage());
         }
 
     }
@@ -62,38 +55,26 @@ public class QueryMenu {
 
     }
 
-    public static Map<String, Integer> mediaCount() {
-        try {
+    public static Map<String, Integer> mediaCount() throws Exception {
+
             QueryMediaCount process = new QueryMediaCount();
             String query = "SELECT MEDIATYPE, COUNT(*) AS TotalCount FROM MEDIA GROUP BY MEDIATYPE";
             DatabaseConnection.completeQuery(query, process);
             return process.getMediaTypes();
-        }
-        catch (Exception e) {
-            System.out.println("Error fetching data");
-            return null;
 
-        }
     }
 
 
-    public static Map<Integer, String[]> mediaInStock () {
-        try {
+    public static Map<Integer, String[]> mediaInStock () throws Exception {
+
            QueryMediaInStock  process = new QueryMediaInStock();
             String query = "SELECT mediaid AS \"Id\"," + "   mediatitle AS \"Title\"," + "   author AS \"Author\"," + "   mediatype AS \"Type\"" + "   FROM media WHERE media.instock = 1 ORDER BY mediatitle ASC";
             DatabaseConnection.completeQuery(query, process);
             return process.getQueries();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error fetching data");
-            return null;
-
-        }
     }
 
     public static List<Util.Tuple4<Integer, String, String, Double>> owningMembers() {
-        try {
+
             QueryGetOwing process = new QueryGetOwing();
             String query = "SELECT DISTINCT members.memid AS \"Member id\", " +
                     "members.username AS \"Username\", " +
@@ -103,12 +84,6 @@ public class QueryMenu {
                     "WHERE members.amountowed > 10 ORDER BY amountowed ASC";
             DatabaseConnection.completeQuery(query, process);
             return process.getOwing() ;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error fetching data");
-            return null;
 
-        }
     }
 }
