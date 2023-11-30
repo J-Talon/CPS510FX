@@ -1,13 +1,9 @@
 package com.example.project510fx.Frontend;
 
 
-import com.example.project510fx.DatabaseSystem.LibrarySystem;
-import com.example.project510fx.DatabaseSystem.QueryMenu;
-import com.example.project510fx.DatabaseSystem.TableMenu;
-import com.example.project510fx.Entities.Librarian;
-import com.example.project510fx.Entities.Transaction;
-import com.example.project510fx.Util.DatabaseConnection;
-import com.example.project510fx.DatabaseSystem.LibrarySystem;
+import com.example.project510fx.Entities.Member;
+import com.example.project510fx.Util.Queries.*;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,6 +27,8 @@ public class AddDelPageController {
     @FXML
     private void delMem (ActionEvent event) {
         String memID = memInfo.getText();
+        Member mem = createMember(memID);
+        mem =
 }
     @FXML
     private void addMed(ActionEvent event) {
