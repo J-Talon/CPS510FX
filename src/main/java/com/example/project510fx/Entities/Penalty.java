@@ -12,8 +12,8 @@ public class Penalty {
         this.transactionId = transactionId;
     }
 
-    public void display() {
-        System.out.println("Penalty id: " + penaltyId +  " | " + " Member ID: " + memberId + " | " +  "Transaction Id: " + transactionId);
+    public String toString() {
+        return "Penalty id: " + penaltyId +  " | " + " Member ID: " + memberId + " | " +  "Transaction Id: " + transactionId;
     }
 
     public int getPenaltyId() {

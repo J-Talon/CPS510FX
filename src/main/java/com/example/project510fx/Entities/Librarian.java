@@ -23,7 +23,8 @@ public class Librarian {
         this.adminKey = adminKey;
         this.name = name;
     }
-    public void display(){
-        System.out. println( "Librarian Id: " + libId + "Admin key: " + adminKey + "name: " + name);
+
+    public String toString() {
+        return "Librarian Id: " + libId + "Admin key: " + adminKey + "name: " + name;
     }
 }

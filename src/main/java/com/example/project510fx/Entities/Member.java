@@ -40,8 +40,13 @@ public class Member {
         return name;
     }
 
-public void display() {
-    System.out.println("Member id: " + memId + " | " +  " Amount owned: " + amountOwed+ " | " +  "Username: " + username + " | " + "Password: " +  password + " | " +  "Email: " +email +" | " +  "name: " + name) ;
-}
+    public String toString () {
+        return "Member id: " + memId + " "
+                +  " Amount owned: " + amountOwed+ " "
+                +  "Username: " + username + " "
+                + "Password: " +  password + " "
+                +  "Email: " +email +" "
+                +  "name: " + name;
+    }
 }
 

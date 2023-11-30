@@ -35,8 +35,7 @@ public class Feedback {
         return comment;
     }
 
-    public void display() {
-        System.out.println("Feedback id: "+feedbackId + "Member id: " + memberId + " Librarian id: " + libId + "Comment: " + comment + "Stars: " + stars) ;
-
+    public String toString() {
+        return "Feedback id: "+feedbackId + "Member id: " + memberId + " Librarian id: " + libId + "Comment: " + comment + "Stars: " + stars;
     }
 }

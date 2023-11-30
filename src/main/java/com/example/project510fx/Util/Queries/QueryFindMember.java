@@ -1,7 +1,4 @@
 package com.example.project510fx.Util.Queries;
-
-
-
 import com.example.project510fx.Entities.Member;
 
 import java.sql.ResultSet;
@@ -21,7 +18,6 @@ public class QueryFindMember extends QueryProcess {
             double owed = set.getDouble("AMOUNTOWED");
             String name = set.getString("NAME");
             member = new Member(id, owed, username, pass, email, name);
-            member.display();
         }
         else throw new IllegalStateException("Could not find member");
 

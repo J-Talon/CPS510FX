@@ -39,8 +39,8 @@ public class Media {
         return availability;
     }
 
-    public void display() {
-        System.out.println( "Title: "+title +" Author: "+author+" publishdate: "+publishDate+" Type: "+type+" availability: "+ availability);
+    public String toString() {
+       return "Title: "+title +" Author: "+author+" publishdate: "+publishDate+" Type: "+type+" availability: "+ availability;
     }
 
 }
