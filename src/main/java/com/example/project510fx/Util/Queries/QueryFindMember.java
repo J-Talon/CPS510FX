@@ -21,7 +21,9 @@ public class QueryFindMember extends QueryProcess {
             double owed = set.getDouble("AMOUNTOWED");
             String name = set.getString("NAME");
             member = new Member(id, owed, username, pass, email, name);
-        } else throw new IllegalStateException("Could not find member");
+            member.display();
+        }
+        else throw new IllegalStateException("Could not find member");
 
     }
 

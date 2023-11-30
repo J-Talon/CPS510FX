@@ -1,6 +1,7 @@
 package com.example.project510fx.Frontend;
 
 
+import com.example.project510fx.DatabaseSystem.LibrarySystem;
 import com.example.project510fx.DatabaseSystem.QueryMenu;
 import com.example.project510fx.DatabaseSystem.TableMenu;
 import com.example.project510fx.Entities.Transaction;
@@ -19,11 +20,11 @@ public class LibrarianStuffController {
 
     @FXML
     private TextArea resultTextArea;
-
-    private DatabaseConnection databaseConnection;
+    LibrarySystem system;
 
     @FXML
     private void initialize() {
+        system = LibrarySystem.getInstance();
         // Initialize the database model
         //databaseConnection= new databaseConnection();
     }

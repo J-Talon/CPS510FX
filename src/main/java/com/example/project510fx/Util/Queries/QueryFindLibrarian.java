@@ -9,18 +9,18 @@ import java.sql.SQLException;
 public class QueryFindLibrarian extends QueryProcess {
 
 
-    Librarian librarian;
+    Librarian librarian = null;
     @Override
     public void processQuery(ResultSet set) throws SQLException {
 
         if (set.next()) {
-            //find the librarian
-            //if it exists then get it
+            int id = set.getInt("LibId");
+           int key =  set.getInt("Adminkey");
+            String name = set.getString("Name");
 
-
-
+            librarian = new Librarian(id, key, name);
         }
-        librarian = null;
+
     }
 
 

@@ -25,6 +25,8 @@ public class LoginScreenController {
     @FXML
     private TextField tf_username;
 
+    private LibrarySystem system;
+
     @FXML
     private PasswordField tf_password;
 
@@ -32,16 +34,19 @@ public class LoginScreenController {
     private Button button_signin;
 
     public void initialize() {
+
+        system = LibrarySystem.getInstance();
+
+
+
         button_signin.setOnAction(event -> {
             String username = tf_username.getText();
             String password = tf_password.getText();
 
+            Member member = system.getMemberAccount(username,password);
+
             try {
-
-             //   LibrarySystem system = LibrarySystem.getInstance();
-           //     Member account = system.getMemberAccount(username, password);
-
-                if (authenticateUser(username, password)) {
+                if (member != null) {
                     Stage stage = (Stage) button_signin.getScene().getWindow();
                     stage.close();
 
@@ -59,15 +64,5 @@ public class LoginScreenController {
                 e.printStackTrace();
             }
         });
-    }
-
-    @Deprecated
-    private boolean authenticateUser(String username, String password) {
-
-            LibrarySystem sys = new LibrarySystem();
-           Member m =  sys.getMemberAccount(username,password);
-
-
-     return m != null;
     }
 }

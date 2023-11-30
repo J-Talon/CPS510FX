@@ -3,10 +3,7 @@ package com.example.project510fx.DatabaseSystem;
 import com.example.project510fx.Entities.*;
 import com.example.project510fx.Util.DatabaseConnection;
 import com.example.project510fx.Util.InsertionFormatter;
-import com.example.project510fx.Util.Queries.QueryFindLibrarian;
-import com.example.project510fx.Util.Queries.QueryFindMember;
-import com.example.project510fx.Util.Queries.QueryGetMedia;
-import com.example.project510fx.Util.Queries.QueryId;
+import com.example.project510fx.Util.Queries.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -16,11 +13,20 @@ import java.util.Map;
 
 public class LibrarySystem {
 
+    private static LibrarySystem sys;
 
+    public static LibrarySystem getInstance() {
+        if (sys == null) {
+            sys = new LibrarySystem();
+        }
+        return sys;
+    }
   /*
     This is a function which helps find the next id you should assign an entry if you are inserting.
     ids are always integers, if -1 is returned then there is an error and you should
      not use that id for inserting.
+
+     Tested.
      */
     public int nextId(String tableName, String idName) {
         try {
@@ -37,25 +43,29 @@ public class LibrarySystem {
     Attempts to get a member object from the database. If not found or error, returns null
     This is used for when a member logs into the system. From the member object you can get info
     like the memberId, name, etc.
+
+    Tested.
      */
     public Member getMemberAccount(String username, String password) {
         try {
             QueryFindMember process = new QueryFindMember();
-            DatabaseConnection.completeQuery("SELECT * FROM Members WHERE username = " + username, process);
+            DatabaseConnection.completeQuery("SELECT * FROM Members WHERE username = '" + username+"'", process);
             Member member = process.getMember();
+
             if (!password.equals(member.getPassword()))
                 return null;
             return member;
 
         }
         catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
 
     /*
     Gets all of the media in the media table, and returns it as a map<Media Id, Media object>
-
+    Tested.
      */
     public Map<Integer, Media> getAllMedia() {
         try {
@@ -73,12 +83,15 @@ public class LibrarySystem {
   This returns all of the media which has the specified id.
   there really only should be 1 media object in the map but in case something messes up you can
   get all of them.
+
+  Tested.
     */
-    public Map<Integer, Media> getMediaById(int id) {
+    public Media getMediaById(int id) {
         try {
             QueryGetMedia process = new QueryGetMedia();
-            DatabaseConnection.completeQuery("SELECT * FROM MEDIA WHERE ID = "+id, process);
-            return process.getMedia();
+            DatabaseConnection.completeQuery("SELECT * FROM MEDIA WHERE MEDIAID = "+id, process);
+            Map<Integer, Media> media = process.getMedia();
+            return media.values().iterator().next();
         }
         catch (Exception e) {
             return null;
@@ -87,15 +100,17 @@ public class LibrarySystem {
 
 
     /*
-    Returns a map of <Integer, Media object> for all of the media which has given title provided.
+    Returns a map of <Integer, Media object> for all of the media which has a similar title to title provided.
+    Tested.
      */
     public Map<Integer, Media> getMediaByTitle(String title) {
         try {
             QueryGetMedia process = new QueryGetMedia();
-            DatabaseConnection.completeQuery("SELECT * FROM MEDIA WHERE TITLE = "+title, process);
+            DatabaseConnection.completeQuery("SELECT * FROM MEDIA WHERE MEDIATITLE LIKE '%"+title+"%'", process);
             return process.getMedia();
         }
         catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -104,7 +119,7 @@ public class LibrarySystem {
     Inserts a review into the table, throws exception with err message if not successful
     insert into feedback (feedbackid, memid, libid, stars, comments) values (100, 2, 3, 4, 'a');
      */
-    public void writeReview(String comment, int libId, int stars, Member member) {
+    public boolean writeReview(String comment, int libId, int stars, Member member) {
         try {
             QueryFindLibrarian process = new QueryFindLibrarian();
             DatabaseConnection.completeQuery("SELECT * FROM LIBRARIAN WHERE LIBID = "+libId, process);
@@ -122,9 +137,11 @@ public class LibrarySystem {
             String update = InsertionFormatter.formatFeedbackInsert(feedback);
 
             DatabaseConnection.completeUpdate(update);
+            return true;
         }
         catch (Exception e) {
             System.out.println("Unable to insert review");
+            return false;
         }
     }
 
@@ -142,8 +159,9 @@ public class LibrarySystem {
 
     /*
     This inserts a new transaction object into the system, with the status "order Placed".
+    Tested.
      */
-    public void placeOrder(Member member, Media media, int pickupOffset, int expireOffset) {
+    public boolean placeOrder(Member member, Media media, int pickupOffset, int expireOffset) {
 
         Date pickupDate = generateFutureDate(pickupOffset);
         Date expireDate = generateFutureDate(expireOffset);
@@ -152,7 +170,7 @@ public class LibrarySystem {
         String expire = new SimpleDateFormat("yyyy-MM-dd").format(expireDate.getTime());
         int nextId = nextId("TransactionDetails", "HistoryId");
         if (nextId == -1) {
-            throw new IllegalStateException("Id is invalid");
+            return false;
         }
 
         Transaction trans = new Transaction(nextId,
@@ -162,6 +180,7 @@ public class LibrarySystem {
 
        String update = InsertionFormatter.formatTransactionInsert(trans);
        DatabaseConnection.completeUpdate(update);
+       return true;
     }
 
 
@@ -169,7 +188,7 @@ public class LibrarySystem {
     This adds a penalty object to the penalties table, and also updates the member's account to have an
     updated penalty amount they need to pay.
      */
-    public void addPenaltyToMember(int memberId, int transactionId, double amount) {
+    public boolean addPenaltyToMember(int memberId, int transactionId, double amount) {
 
         QueryFindMember processor = new QueryFindMember();
         String query = "SELECT * FROM Members WHERE MEMID = "+memberId;
@@ -187,14 +206,24 @@ public class LibrarySystem {
            if (id == -1) {
                throw new IllegalStateException("Could not get next id to insert");
            }
+
+           QueryFindTransaction transactionFind = new QueryFindTransaction();
+           DatabaseConnection.completeUpdate("SELECT * FROM TRANSACTIONDETAILS WHERE HISTORYID = "+transactionId);
+
+           if (!transactionFind.compare(transactionId,memberId)) {
+               return false;
+           }
+
            Penalty penalty = new Penalty(id, memberId, transactionId);
            String insert = InsertionFormatter.formatPenaltyInsert(penalty);
 
            DatabaseConnection.completeUpdate(insert);
+           return true;
 
         }
         catch (IllegalStateException e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 
