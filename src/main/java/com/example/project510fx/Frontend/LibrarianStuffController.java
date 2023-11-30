@@ -8,6 +8,7 @@ import com.example.project510fx.DatabaseSystem.TableMenu;
 import com.example.project510fx.Entities.Media;
 import com.example.project510fx.Entities.Transaction;
 
+import com.example.project510fx.Util.Tuple4;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -37,7 +38,7 @@ public class LibrarianStuffController {
     @FXML
     private void executeQuery1(ActionEvent event) {
         try {
-            List<Util.Tuple4<Integer, String, String, Double>> list = QueryMenu.owningMembers();
+            List<Tuple4<Integer, String, String, Double>> list = QueryMenu.owningMembers();
 
 
         }

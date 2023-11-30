@@ -6,6 +6,7 @@ import Util.Tuple3;
 import com.example.project510fx.Entities.Transaction;
 import com.example.project510fx.Util.DatabaseConnection;
 import com.example.project510fx.Util.Queries.*;
+import com.example.project510fx.Util.Tuple4;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -73,7 +74,7 @@ public class QueryMenu {
             return process.getQueries();
     }
 
-    public static List<Util.Tuple4<Integer, String, String, Double>> owningMembers() {
+    public static List<Tuple4<Integer, String, String, Double>> owningMembers() {
 
             QueryGetOwing process = new QueryGetOwing();
             String query = "SELECT DISTINCT members.memid AS \"Member id\", " +
@@ -83,7 +84,7 @@ public class QueryMenu {
                     "FROM members INNER JOIN penalties ON members.memid = penalties.memid " +
                     "WHERE members.amountowed > 10 ORDER BY amountowed ASC";
             DatabaseConnection.completeQuery(query, process);
-            return process.getOwing() ;
+            return process.getOwing();
 
     }
 }

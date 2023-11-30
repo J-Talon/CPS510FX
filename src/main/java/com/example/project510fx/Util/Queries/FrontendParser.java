@@ -4,6 +4,10 @@ import com.example.project510fx.DatabaseSystem.LibrarySystem;
 import com.example.project510fx.Entities.Media;
 import com.example.project510fx.Entities.Member;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 public class FrontendParser {
 
     //memId, username, pass, email, name, owe
@@ -29,7 +33,12 @@ public class FrontendParser {
     }
 
 
-
-
-
+    public List<String> parse(String s) {
+        List<String> strings = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(s);
+        while (tokenizer.hasMoreTokens()) {
+           strings.add(tokenizer.nextToken());
+        }
+        return strings;
+    }
 }

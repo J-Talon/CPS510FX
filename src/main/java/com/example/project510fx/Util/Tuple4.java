@@ -1,4 +1,4 @@
-package Util;
+package com.example.project510fx.Util;
 
 public class Tuple4<A,B,C,D> {
     A a;
@@ -29,7 +29,9 @@ public class Tuple4<A,B,C,D> {
         return d;
     }
 
-    public void display() {
-        System.out.println(""+a+" "+b+" "+c+" "+d);
+    public String toString() {
+        return a +" "+ b+" "+ c+" "+d;
     }
+
+
 }

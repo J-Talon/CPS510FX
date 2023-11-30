@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff8f0788-fd3e-445a-bff2-9322a2c8f172" name="Changes" comment="Add frontend">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/FrontendParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_30_2023_12_34_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_30_2023_12_34_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="ff8f0788-fd3e-445a-bff2-9322a2c8f172" name="Changes" comment="Add FrontendParser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/LibrarySystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LoginScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LoginScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/LibrarianStuff.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LibrarianStuff.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/QueryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/QueryMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LibrarianStuffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LibrarianStuffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/FrontendParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/FrontendParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryGetOwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryGetOwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Tuple4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Tuple4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701368772321</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add FrontendParser">
+      <created>1701370590352</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701370590352</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +126,7 @@
     <MESSAGE value="Add JavaFX" />
     <MESSAGE value="Add JavaFX 2" />
     <MESSAGE value="Add frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add frontend" />
+    <MESSAGE value="Add FrontendParser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add FrontendParser" />
   </component>
 </project>
