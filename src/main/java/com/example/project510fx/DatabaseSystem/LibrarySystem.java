@@ -17,11 +17,7 @@ import java.util.Map;
 public class LibrarySystem {
 
 
-    public LibrarySystem() {
-
-    }
-
-    /*
+  /*
     This is a function which helps find the next id you should assign an entry if you are inserting.
     ids are always integers, if -1 is returned then there is an error and you should
      not use that id for inserting.

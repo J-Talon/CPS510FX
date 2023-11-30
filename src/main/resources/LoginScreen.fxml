@@ -6,10 +6,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.LoginScreenController">
-   <ImageView fitHeight="406.0" fitWidth="610.0" layoutY="-6.0" opacity="0.56" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../Image/background.png.jpg" />
-   </ImageView>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project510fx.Frontend.LoginScreenController">
+<!--   <ImageView fitHeight="406.0" fitWidth="610.0" layoutY="-6.0" opacity="0.56" pickOnBounds="true" preserveRatio="true">-->
+<!--      <Image url="@../Image/background.png.jpg" />-->
+<!--   </ImageView>-->
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c51579e" height="334.0" layoutX="68.0" layoutY="33.0" stroke="#f8f3f3" strokeType="INSIDE" width="479.0" />
    <Label layoutX="136.0" layoutY="71.0" text="WELCOME TO OUR LIBRARY" textFill="#181f28">
       <font>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.project510fx.Frontend.LibrarianStuffController">
+   <TextField fx:id="queryTextField" promptText="Enter SQL Query"/>
+   <Button text="Execute Query1" onAction="#executeQuery1"/>
+   <Button text="Execute Query2" onAction="#executeQuery2"/>
+   <Button text="Execute Query3" onAction="#executeQuery3"/>
+   <Button text="Execute Query4" onAction="#executeQuery4"/>
+   <Button text="Execute Query5" onAction="#executeQuery5"/>
+   <Button text="Execute Query6" onAction="#executeQuery6"/>
+   <Button text="Create Table" onAction="#createTable"/>
+   <Button text="Drop Table" onAction="#dropTable"/>
+   <Button text="Populate Table" onAction="#populate"/>
+   <TextArea fx:id="resultTextArea" editable="false" wrapText="true"/>
+</VBox>

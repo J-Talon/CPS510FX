@@ -24,6 +24,10 @@ public class Tuple3<A,B,C> {
     }
 
 
+    public String toString() {
+        return (a+" "+b+" "+c);
+    }
+
     public void display() {
         System.out.println(a+" "+b+" "+c);
     }

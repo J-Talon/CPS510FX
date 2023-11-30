@@ -1,4 +1,4 @@
-package Frontend;
+package com.example.project510fx.Frontend;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.example.project510fx.DatabaseSystem.LibrarySystem;
+import com.example.project510fx.Entities.Member;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,6 +37,10 @@ public class LoginScreenController {
             String password = tf_password.getText();
 
             try {
+
+             //   LibrarySystem system = LibrarySystem.getInstance();
+           //     Member account = system.getMemberAccount(username, password);
+
                 if (authenticateUser(username, password)) {
                     Stage stage = (Stage) button_signin.getScene().getWindow();
                     stage.close();
@@ -54,33 +61,13 @@ public class LoginScreenController {
         });
     }
 
+    @Deprecated
     private boolean authenticateUser(String username, String password) {
-        String url = "";
-        String user = "root";
-        String pass = "";
 
-        try {
-            Class.forName("");
+            LibrarySystem sys = new LibrarySystem();
+           Member m =  sys.getMemberAccount(username,password);
 
-            Connection conn = DriverManager.getConnection(url, user, pass);
-            Statement stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM Users WHERE username = '" + username + "'";
-            ResultSet rs = stmt.executeQuery(sql);
-
-            if (rs.next()) {
-                if (password.equals(rs.getString("password"))) {
-                    return true;
-                }
-            }
-
-            conn.close();
-            stmt.close();
-            rs.close();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-
-        return false;
+     return m != null;
     }
 }

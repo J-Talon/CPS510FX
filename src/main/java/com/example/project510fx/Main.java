@@ -4,41 +4,58 @@ import Util.Tuple3;
 import com.example.project510fx.DatabaseSystem.LibrarySystem;
 import com.example.project510fx.DatabaseSystem.QueryMenu;
 import com.example.project510fx.DatabaseSystem.TableMenu;
-import com.example.project510fx.Entities.Format.FormatOwing;
-import com.example.project510fx.Entities.Transaction;
 
+import com.example.project510fx.Entities.Transaction;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Application {
 
 
     public static void printManual() {
         System.out.println("This is instructions");
     }
 
-    public static void main(String[] args) throws Exception {
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource("LibrarianStuff.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Library System");
+        stage.setScene(scene);
+        stage.show();
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        try {
 
-            while (true) {
+    public static void main(String[] args) {
 
-                printManual();
-                String input = scanner.nextLine();
-                if (input.length() == 1) {
-                    processInput(input);
-                }
-                else {
-                    System.out.println("Invalid input, must be a single character.");
-                }
-            }
-        }
-        catch (Exception e) {
-           System.out.println("Error: "+e.getMessage());
-        }
-
+        launch(args);
+//
+//        Scanner scanner = new Scanner(System.in);
+//        try {
+//
+//            while (true) {
+//
+//                printManual();
+//                String input = scanner.nextLine();
+//                if (input.length() == 1) {
+//                    processInput(input);
+//                }
+//                else {
+//                    System.out.println("Invalid input, must be a single character.");
+//                }
+//            }
+//        }
+//        catch (Exception e) {
+//           System.out.println("Error: "+e.getMessage());
+//        }
+//
 
     }
 
@@ -123,12 +140,12 @@ public class Main {
             break;
 
             case 'i': {
-                List<FormatOwing> owing = QueryMenu.owningMembers();
+                List<Util.Tuple4<Integer, String, String, Double>> owing = QueryMenu.owningMembers();
                 if (owing == null) {
                     throw new IllegalStateException("Unable to fetch data on members with penalties");
                 }
 
-                for (FormatOwing o : owing) {
+                for (Util.Tuple4<?,?,?,?> o : owing) {
                     o.display();
                 }
             }
@@ -138,12 +155,7 @@ public class Main {
                 System.exit(0);
             break;
 
-            case 'k': {
-                LibrarySystem sys = new LibrarySystem();
-                double pen = sys.payPenalty(1,10);
-               System.out.println(pen);
-            }
-            break;
+
 
             default:
                 System.out.println("Unknown input. ");

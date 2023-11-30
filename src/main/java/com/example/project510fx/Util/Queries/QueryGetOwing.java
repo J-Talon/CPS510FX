@@ -2,7 +2,7 @@ package com.example.project510fx.Util.Queries;
 
 
 
-import com.example.project510fx.Entities.Format.FormatOwing;
+import Util.Tuple4;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,17 +13,16 @@ import java.util.List;
 public class QueryGetOwing extends QueryProcess {
 
     /*
-    memid (i), username, mem email, amount owed (f)
+        int memId;
+    String username, email;
+    float owe;
+
      */
 
-    List<FormatOwing> owing;
+    List<Util.Tuple4<Integer, String, String, Double>> owing;
 
     public QueryGetOwing() {
         this.owing = new ArrayList<>();
-    }
-
-    public List<FormatOwing> QueryGetOwing() {
-        return owing;
     }
 
     @Override
@@ -32,16 +31,16 @@ public class QueryGetOwing extends QueryProcess {
             int id = set.getInt("Member Id");
             String username = set.getString("Username");
             String email = set.getString("Member Email");
-            float owing = set.getFloat("Amount Owed");
+            Double owing = set.getDouble("Amount Owed");
 
             //ng(int memId, String username, String email, float owe) {
-            FormatOwing entry = new FormatOwing(id, username, email, owing);
-            this.owing.add(entry);
+            Util.Tuple4<Integer, String,String,Double> tup = new Tuple4<>(id, username, email, owing);
+            this.owing.add(tup);
         }
     }
 
 
-    public List<FormatOwing> getOwing() {
+    public List<Tuple4<Integer, String,String,Double>> getOwing() {
         return owing;
     }
 }

@@ -2,7 +2,7 @@ package com.example.project510fx.DatabaseSystem;
 
 
 import Util.Tuple3;
-import com.example.project510fx.Entities.Format.FormatOwing;
+
 import com.example.project510fx.Entities.Transaction;
 import com.example.project510fx.Util.DatabaseConnection;
 import com.example.project510fx.Util.Queries.*;
@@ -92,7 +92,7 @@ public class QueryMenu {
         }
     }
 
-    public static List<FormatOwing> owningMembers() {
+    public static List<Util.Tuple4<Integer, String, String, Double>> owningMembers() {
         try {
             QueryGetOwing process = new QueryGetOwing();
             String query = "SELECT DISTINCT members.memid AS \"Member id\", " +
