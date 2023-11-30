@@ -4,13 +4,15 @@ package com.example.project510fx.Frontend;
 import com.example.project510fx.DatabaseSystem.LibrarySystem;
 import com.example.project510fx.DatabaseSystem.QueryMenu;
 import com.example.project510fx.DatabaseSystem.TableMenu;
+import com.example.project510fx.Entities.Librarian;
 import com.example.project510fx.Entities.Transaction;
 import com.example.project510fx.Util.DatabaseConnection;
+import com.example.project510fx.DatabaseSystem.LibrarySystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-
+import javafx.scene.control.TextField;
 
 
 import java.util.List;
@@ -20,6 +22,10 @@ public class LibrarianStuffController {
 
     @FXML
     private TextArea resultTextArea;
+    @FXML
+    private TextField keywords;
+    @FXML
+
     LibrarySystem system;
 
     @FXML
@@ -58,6 +64,12 @@ public class LibrarianStuffController {
         Map<Integer, String[]> map = QueryMenu.mediaInStock();
         resultTextArea.appendText("Q1");
     }
+
+    @FXML
+    private void getMediaTitle(ActionEvent event) {
+        String key = keywords.getText();
+        system.getMediaByTitle(key);
+    }
     @FXML
     private void createTable(ActionEvent event) {
         TableMenu.createTables();
@@ -73,5 +85,9 @@ public class LibrarianStuffController {
         TableMenu.populateTables();
         System.out.println("Done");
     }
+        @FXML
+    private void addAndRemoveData (ActionEvent event) {
+
+        }
 }
 
