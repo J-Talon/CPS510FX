@@ -34,13 +34,6 @@ public class Transaction {
     }
 
 
-    public void display() {
-    System.out.println("History id: "+ historyId + " | " + " Media Id: "+mediaId + " | " +" status: "+status + " | " +"Member ID: "+ memberId + " | " +"Pick up date: "+pickupDate+ "|" +"Expired Day: "+expiryDate);
-
-
-
-    }
-
     public int getHistoryId() {
         return historyId;
     }
@@ -64,4 +57,17 @@ public class Transaction {
     public String getExpiryDate() {
         return expiryDate;
     }
+
+    public String toString() {
+       return "History id: "+ historyId
+               + " | " + " Media Id: "+mediaId
+               + " | " +" status: "+status
+               + " | " +"Member ID: "+ memberId
+               + " | " +"Pick up date: "+pickupDate
+               + "|" +"Expired Day: "+expiryDate;
+    }
+
+
 }
+
+

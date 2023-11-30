@@ -2,8 +2,10 @@ package com.example.project510fx.DatabaseSystem;
 
 import com.example.project510fx.Entities.*;
 import com.example.project510fx.Util.DatabaseConnection;
+import com.example.project510fx.Util.DeletionFormatter;
 import com.example.project510fx.Util.InsertionFormatter;
 import com.example.project510fx.Util.Queries.*;
+import org.jetbrains.annotations.Nullable;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -63,6 +65,42 @@ public class LibrarySystem {
         }
     }
 
+
+    @Nullable
+    public Member getMemberAccount(int id) {
+        try {
+            QueryFindMember process = new QueryFindMember();
+            DatabaseConnection.completeQuery("SELECT * FROM Members WHERE id = " + id+"", process);
+             return process.getMember();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    public Librarian getLibrarianAccount(int id, int adminkey) {
+        try {
+            QueryFindLibrarian process = new QueryFindLibrarian();
+            DatabaseConnection.completeQuery("SELECT * FROM LIBRARIAN WHERE ID = "+id, process);
+            Librarian lib = process.getLibrarian();
+
+            if (lib.getAdminKey() != adminkey) {
+                return null;
+            }
+
+            return lib;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+
+
     /*
     Gets all of the media in the media table, and returns it as a map<Media Id, Media object>
     Tested.
@@ -86,6 +124,7 @@ public class LibrarySystem {
 
   Tested.
     */
+    @Nullable
     public Media getMediaById(int id) {
         try {
             QueryGetMedia process = new QueryGetMedia();
@@ -253,4 +292,71 @@ public class LibrarySystem {
         }
         return -1;
     }
+
+
+    public void insertMember(Member member) {
+        String insert = InsertionFormatter.formatMemberInsert(member);
+        DatabaseConnection.completeUpdate(insert);
+    }
+
+    public void insertMedia(Media med) {
+        String insert = InsertionFormatter.formatMediaInsert(med);
+        DatabaseConnection.completeUpdate(insert);
+    }
+
+    public void insertTransaction(Transaction trans) {
+        String insert = InsertionFormatter.formatTransactionInsert(trans);
+        DatabaseConnection.completeUpdate(insert);
+    }
+
+    public void insertFeedback(Feedback feed) {
+        String insert = InsertionFormatter.formatFeedbackInsert(feed);
+        DatabaseConnection.completeUpdate(insert);
+    }
+
+    public void insertLibrarian(Librarian lib) {
+        String insert = InsertionFormatter.formatLibrarianInsert(lib);
+        DatabaseConnection.completeUpdate(insert);
+    }
+
+    public void insertPenalty(Penalty pen) {
+        String insert = InsertionFormatter.formatPenaltyInsert(pen);
+        DatabaseConnection.completeUpdate(insert);
+    }
+
+
+    public boolean deleteMember(int id) {
+        Member mem = getMemberAccount(id);
+        if (mem == null)
+            return false;
+
+        String del = DeletionFormatter.formatMemberDel(mem);
+        DatabaseConnection.completeUpdate(del);
+        return true;
+    }
+
+    public boolean deleteMedia(int id) {
+        Media med = getMediaById(id);
+        if (med == null) {
+            return false;
+        }
+
+        String del = DeletionFormatter.formatMediaDel(med);
+        DatabaseConnection.completeUpdate(del);
+
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
