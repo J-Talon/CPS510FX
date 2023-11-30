@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 public class FrontendParser {
 
     //memId, username, pass, email, name, owe
-    public Member createMember(String username, String pass, String email, String name) throws Exception {
+    public static Member createMember(String username, String pass, String email, String name) throws IllegalStateException {
        int nextId = LibrarySystem.nextId("Members", "Memid");
        if (nextId == -1)
            throw new IllegalStateException("next id is invalid");
@@ -20,7 +20,7 @@ public class FrontendParser {
     }
 
     //mediaId, author, title, publish, type, instock
-    public Media createMedia(String author, String title, String publish, String type, String instock) throws Exception {
+    public static Media createMedia(String author, String title, String publish, String type, String instock) throws IllegalStateException {
         int nextId = LibrarySystem.nextId("Media", "MediaId");
         if (nextId == -1)
             throw new IllegalStateException("next id is invalid");
@@ -33,7 +33,7 @@ public class FrontendParser {
     }
 
 
-    public List<String> parse(String s) {
+    public static List<String> parse(String s) {
         List<String> strings = new ArrayList<>();
         StringTokenizer tokenizer = new StringTokenizer(s);
         while (tokenizer.hasMoreTokens()) {

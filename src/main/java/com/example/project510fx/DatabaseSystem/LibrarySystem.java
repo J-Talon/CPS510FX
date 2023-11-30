@@ -70,11 +70,10 @@ public class LibrarySystem {
     public Member getMemberAccount(int id) {
         try {
             QueryFindMember process = new QueryFindMember();
-            DatabaseConnection.completeQuery("SELECT * FROM Members WHERE id = " + id+"", process);
+            DatabaseConnection.completeQuery("SELECT * FROM Members WHERE MemId = " + id+"", process);
              return process.getMember();
         }
         catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -83,7 +82,7 @@ public class LibrarySystem {
     public Librarian getLibrarianAccount(int id, int adminkey) {
         try {
             QueryFindLibrarian process = new QueryFindLibrarian();
-            DatabaseConnection.completeQuery("SELECT * FROM LIBRARIAN WHERE ID = "+id, process);
+            DatabaseConnection.completeQuery("SELECT * FROM LIBRARIAN WHERE LIBID = "+id, process);
             Librarian lib = process.getLibrarian();
 
             if (lib.getAdminKey() != adminkey) {

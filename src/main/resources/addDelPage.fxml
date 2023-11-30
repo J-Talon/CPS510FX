@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="325.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project510fx.Frontend.AddDelPageController">
+<AnchorPane prefHeight="325.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project510fx.Frontend.AddDelPageController">
    <children>
       <VBox alignment="CENTER" layoutX="-2.0" layoutY="2.0" prefHeight="325.0" prefWidth="453.0">
          <children>
@@ -29,7 +29,8 @@
                   <Button mnemonicParsing="false" onAction="#delMed" text="Delete Media" />
                </children>
             </HBox>
-            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="338.0" text="Formatting Member :  Username , Password , email , name &#10;Formatting   Media   :   Title , publisher , instock&#10; " />
+            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="338.0" text="Formatting Member :  Username , Password , email , name &#10;Formatting   Media   :   Author Title , publisher, type,  instock&#10; " />
+            <TextArea fx:id="modifyResult" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="454.0" />
          </children></VBox>
    </children>
 </AnchorPane>

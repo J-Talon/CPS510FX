@@ -8,13 +8,19 @@ import com.example.project510fx.DatabaseSystem.TableMenu;
 import com.example.project510fx.Entities.Media;
 import com.example.project510fx.Entities.Transaction;
 
+import com.example.project510fx.Main;
 import com.example.project510fx.Util.Tuple4;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -35,12 +41,16 @@ public class LibrarianStuffController {
         //databaseConnection= new databaseConnection();
     }
 
-    @FXML
+    @FXML @SuppressWarnings("unused")
     private void executeQuery1(ActionEvent event) {
+
+
+        resultTextArea.setText("");
         try {
             List<Tuple4<Integer, String, String, Double>> list = QueryMenu.owningMembers();
-
-
+            for (Tuple4<?,?,?,?> t: list) {
+                resultTextArea.appendText(t.toString() +"\n");
+            }
         }
         catch (Exception e) {
             resultTextArea.setText(e.getMessage());
@@ -48,22 +58,95 @@ public class LibrarianStuffController {
 
     }
 
-    @FXML
+    @FXML @SuppressWarnings("unused")
     private void executeQuery2(ActionEvent event) {
-        List<Util.Tuple3<String, String, String>> list = QueryMenu.listEveryone();
-        resultTextArea.appendText("Q1");
+        try {
+            resultTextArea.setText("");
+            Map<Integer, String[]> map = QueryMenu.mediaInStock();
+
+            for (String[] array : map.values()) {
+
+                StringBuilder b = new StringBuilder("");
+                for (String s : array) {
+                    b.append(s).append("\n");
+                }
+
+                resultTextArea.appendText(b.toString());
+            }
+        }
+        catch (Exception e) {
+            resultTextArea.setText("Error:"+e.getMessage());
+        }
+
 }
 
 
-@FXML
+   @FXML @SuppressWarnings("unused")
     private void executeQuery3(ActionEvent event) {
+
+
+       resultTextArea.setText("");
+       try {
+           Map<String, Integer> map = QueryMenu.mediaCount();
+           for (Map.Entry<String, Integer> entry : map.entrySet()) {
+               String s = entry.getKey() +" "+ entry.getValue() +"\n";
+               resultTextArea.appendText(s);
+           }
+       }
+       catch (Exception e) {
+           resultTextArea.setText(e.getMessage());
+       }
+
+
+    }
+
+
+
+    @FXML @SuppressWarnings("unused")
+    private void executeQuery4(ActionEvent event) {
+
+        resultTextArea.setText("");
+        try {
+            List<Util.Tuple3<String, String, String>> list = QueryMenu.listEveryone();
+            for (Util.Tuple3<?,?,?> t: list) {
+                resultTextArea.appendText(t.toString() +"\n");
+            }
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
+
+
+    }
+
+
+    @FXML @SuppressWarnings("unused")
+    private void executeQuery5(ActionEvent event) {
+
+        try {
+            List<Transaction> list = QueryMenu.expiredJan20();
+            resultTextArea.setText("");
+            for (Transaction t: list) {
+                resultTextArea.appendText(t.toString() +"\n");
+            }
+
+        }
+        catch (Exception e) {
+            resultTextArea.setText(e.getMessage());
+        }
+    }
+
+
+    @FXML  @SuppressWarnings("unused")
+    private void executeQuery6(ActionEvent event) {
+
 
         try {
             List<Util.Tuple3<Integer, Integer, String>> list = QueryMenu.goodReview();
 
             if (list == null) {
                 resultTextArea.setText("Error occurred");
-              return;
+                return;
             }
 
             resultTextArea.setText("");
@@ -76,62 +159,9 @@ public class LibrarianStuffController {
         }
 
 
-    }    @FXML
-    private void executeQuery4(ActionEvent event) {
-        try {
-            List<Transaction> list = QueryMenu.expiredJan20();
-            resultTextArea.setText("");
-            for (Transaction t: list) {
-                resultTextArea.appendText(t.toString() +"\n");
-            }
-
-        }
-        catch (Exception e) {
-            resultTextArea.setText(e.getMessage());
-        }
-
     }
 
-
-    @FXML
-    private void executeQuery5(ActionEvent event) {
-
-        resultTextArea.setText("");
-        try {
-            Map<String, Integer> map = QueryMenu.mediaCount();
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                String s = entry.getKey() +" "+ entry.getValue() +"\n";
-                resultTextArea.appendText(s);
-            }
-        }
-        catch (Exception e) {
-            resultTextArea.setText(e.getMessage());
-        }
-    }
-
-
-    @FXML
-    private void executeQuery6(ActionEvent event) {
-
-        try {
-            Map<Integer, String[]> map = QueryMenu.mediaInStock();
-
-            for (String[] array : map.values()) {
-
-                StringBuilder b = new StringBuilder("");
-                for (String s : array) {
-                    b.append(s).append(" ");
-                }
-
-                resultTextArea.appendText(b.toString());
-            }
-        }
-        catch (Exception e) {
-            resultTextArea.setText("Error:"+e.getMessage());
-        }
-    }
-
-    @FXML
+    @FXML  @SuppressWarnings("unused")
     private void getMediaTitle(ActionEvent event) {
         String key = keywords.getText();
         Map<Integer, Media> media = system.getMediaByTitle(key);
@@ -147,7 +177,7 @@ public class LibrarianStuffController {
         }
 
     }
-    @FXML
+    @FXML  @SuppressWarnings("unused")
     private void createTable(ActionEvent event) {
         try {
             TableMenu.createTables();
@@ -159,7 +189,7 @@ public class LibrarianStuffController {
     }
 
 
-    @FXML
+    @FXML  @SuppressWarnings("unused")
     private void dropTable(ActionEvent event) {
         try {
             TableMenu.deleteTables();
@@ -168,7 +198,10 @@ public class LibrarianStuffController {
         catch (Exception e) {
             resultTextArea.setText(e.getMessage());
         }
-    }    @FXML
+    }
+
+
+    @FXML @SuppressWarnings("unused")
     private void populate(ActionEvent event) {
         try {
             TableMenu.populateTables();
@@ -179,9 +212,18 @@ public class LibrarianStuffController {
         }
     }
 
-        @FXML
+        @FXML  @SuppressWarnings("unused")
     private void addAndRemoveData (ActionEvent event) {
-
+            Stage newStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(Main.class.getClassLoader().getResource("addDelPage.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            newStage.setScene(new Scene(root));
+            newStage.show();
     }
 }
 

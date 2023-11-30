@@ -42,17 +42,12 @@ public class QueryMenu {
     }
 
     public static List<Tuple3<String, String, String>> listEveryone () {
-        try {
+
             QueryListEveryone process = new QueryListEveryone();
             String query = "SELECT DISTINCT Name AS PersonnelName, Email AS ContactInfo, 'Member' AS PersonnelType FROM Members" + " UNION " + "SELECT DISTINCT Name AS PersonnelName, NULL AS ContactInfo, 'Librarian' AS PersonnelType FROM Librarian";
             DatabaseConnection.completeQuery(query, process);
             return process.getPersonnelList();
-        }
-        catch (Exception e) {
-            System.out.println("Error fetching data");
-            return null;
 
-        }
 
     }
 
