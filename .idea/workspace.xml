@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff8f0788-fd3e-445a-bff2-9322a2c8f172" name="Changes" comment="Add JavaFX 2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindTransaction.java" afterDir="false" />
+    <list default="true" id="ff8f0788-fd3e-445a-bff2-9322a2c8f172" name="Changes" comment="Add tostring methods to entities">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/DeletionFormatter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/LibrarySystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LibrarianStuffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LibrarianStuffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LoginScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LoginScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindLibrarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindLibrarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindMember.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +86,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701361090462</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix backend LibrarySystem">
+      <created>1701365600703</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701365600703</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add tostring methods to entities">
+      <created>1701365949621</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701365949621</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +118,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add JavaFX" />
     <MESSAGE value="Add JavaFX 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add JavaFX 2" />
+    <MESSAGE value="Fix backend LibrarySystem" />
+    <MESSAGE value="Add tostring methods to entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tostring methods to entities" />
   </component>
 </project>
