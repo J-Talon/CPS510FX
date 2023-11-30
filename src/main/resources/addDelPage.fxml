@@ -9,24 +9,24 @@
          <children>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="398.0" spacing="5.0">
                <children>
-                  <TextField fx:id="MemInfo" prefHeight="20.0" prefWidth="200.0" promptText="Insert the Member Information" />
-                  <Button mnemonicParsing="false" text="Add member" />
+                  <TextField fx:id="memInfo" prefHeight="20.0" prefWidth="200.0" promptText="Insert the Member Information" />
+                  <Button mnemonicParsing="false" onAction="#addMem" text="Add member" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="37.0" prefWidth="354.0" spacing="5.0">
                <children>
-                  <TextField fx:id="MemID" prefHeight="20.0" prefWidth="200.0" promptText="Insert Mem ID" />
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Delete Member" />
+                  <TextField fx:id="memID" prefHeight="20.0" prefWidth="200.0" promptText="Insert Mem ID" />
+                  <Button mnemonicParsing="false" onAction="#delMem" prefHeight="26.0" prefWidth="99.0" text="Delete Member" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="398.0" spacing="5.0">
                <children>
-                  <TextField fx:id="MedInfo" prefHeight="20.0" prefWidth="200.0" promptText="Insert the Media Information" />
-                  <Button mnemonicParsing="false" text="Add Media" />
+                  <TextField fx:id="medInfo" prefHeight="20.0" prefWidth="200.0" promptText="Insert the Media Information" />
+                  <Button mnemonicParsing="false" onAction="#addMed" text="Add Media" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="398.0" spacing="5.0">
                <children>
-                  <TextField fx:id="MedID" prefHeight="20.0" prefWidth="200.0" promptText="Insert Media ID" />
-                  <Button mnemonicParsing="false" text="Delete Media" />
+                  <TextField fx:id="medID" prefHeight="20.0" prefWidth="200.0" promptText="Insert Media ID" />
+                  <Button mnemonicParsing="false" onAction="#delMed" text="Delete Media" />
                </children>
             </HBox>
             <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="338.0" text="Formatting Member :  Username , Password , email , name &#10;Formatting   Media   :   Title , publisher , instock&#10; " />
