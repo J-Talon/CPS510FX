@@ -1,0 +1,57 @@
+CREATE TABLE Media(MediaID INT PRIMARY KEY,
+author VARCHAR(50) DEFAULT 'Unknown', MediaTitle VARCHAR(50) NOT NULL,
+publishDate DATE DEFAULT '1900-01-01', MediaType VARCHAR(50) DEFAULT 'undefined', 
+inStock int DEFAULT 1)
+
+
+
+CREATE TABLE Members (
+MemID int               PRIMARY KEY,
+Username varchar(255)   NOT NULL,
+Pass varchar(255)       NOT NULL,
+Email varchar(255)      NOT NULL,
+Name varchar(255)       NOT NULL,
+AmountOwed double PRECISION     Default 0.0
+)
+
+
+CREATE TABLE Librarian (
+LibID int            PRIMARY KEY,
+AdminKey int            NOT NULL,
+Name varchar(255)       NOT NULL
+)
+
+
+CREATE TABLE TransactionDetails (
+HistoryID int          PRIMARY KEY,
+PickupDate Date         DEFAULT '1900-01-01',
+ExpireDate Date         NOT NULL,
+Status int             Default 0,
+MemID int,
+MediaID int,
+FOREIGN KEY(MemID)     REFERENCES Members(MemID),
+FOREIGN KEY(MediaID)   REFERENCES Media (MediaID),
+CHECK (Status >= 0 AND Status <= 4)
+)
+
+
+
+CREATE TABLE Feedback (
+FeedbackID int           PRIMARY KEY,
+MemID int,
+LibID int,
+Stars int                NOT Null,
+Comments varChar(255)    Default 'No Feedback',
+FOREIGN KEY(MemID)      REFERENCES Members(MemID),
+FOREIGN KEY(LibID)      REFERENCES Librarian (LibID),
+CHECK (Stars >= 0 AND Stars <= 5)
+)
+
+
+CREATE TABLE Penalties(
+PenaltyID int            PRIMARY KEY,
+MemID int,
+HistoryID int,
+FOREIGN KEY(MemID)      REFERENCES Members(MemID),
+FOREIGN KEY(HistoryID)  REFERENCES TransactionDetails (HistoryID)
+)

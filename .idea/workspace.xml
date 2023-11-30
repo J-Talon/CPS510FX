@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ff8f0788-fd3e-445a-bff2-9322a2c8f172" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/ojdbc6-11.2.0.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/LibrarySystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/QueryMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/DatabaseSystem/TableMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Format/FormatOwing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Librarian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Media.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Penalty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Entities/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/Image/Dashboard.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/Image/background.png.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/Image/signupbackground.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LibrarianStuff.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LibrarianStuffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LoginScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Frontend/LoginScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/InsertionFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryExpiredJan20.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindLibrarian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryFindMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryGetMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryGetOwing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryGoodReviews.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryListEveryone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryMediaCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryMediaInStock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/QueryProcess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Queries/UpdateAddReview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/ResourceManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Tuple3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project510fx/Util/Tuple4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project510fx/CreateCommands.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project510fx/DatabaseEntries.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project510fx/DropTables.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project510fx/Manual.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project510fx/hello-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2YsfpXmB5dQE9b9MHAgg1i59b7Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/jiang/IdeaProjects/javafx-sdk-21.0.1/lib/javafx.web.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.14746094",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jiang\IdeaProjects\510ProjectFX" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+      <option name="JAR_PATH" value="Project510FX-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\jiang\IdeaProjects\510ProjectFX\target" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff8f0788-fd3e-445a-bff2-9322a2c8f172" name="Changes" comment="" />
+      <created>1701319392584</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701319392584</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

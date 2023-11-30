@@ -1,0 +1,6 @@
+DROP TABLE Penalties
+DROP TABLE Feedback
+DROP TABLE TransactionDetails
+DROP TABLE Members
+DROP TABLE Media
+DROP TABLE Librarian
