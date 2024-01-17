@@ -33,4 +33,8 @@ When a user logs in, they are presented by a panel which allows them to make spe
 
 If the user chooses to add or delete data, they will be presented with a screen which allows them to add and delete media and member accounts. It was chosen to not allow the user to modify the history of transactions due to the possibility that they may tamper with the data. Functionality is planned to allow librarians to interact and view transactions and feedback tables.
 
+AN EXAMPLE OF QUERRY EXPORT INTERFACE
+
+![Screenshot 2024-01-16 212316](https://github.com/J-Talon/CPS510FX/assets/130938825/ca41ab99-a5f9-43eb-bbb1-662a34e332c3)
+
 
