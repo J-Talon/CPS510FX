@@ -1,6 +1,7 @@
 
 
 General Description of the Library Database System 
+
 The purpose of the system is to emulate a library that uses a database to store information about members, staff, and other forms of media.  For this system, four main entities will be considered: The librarians as administrators who manage the data of books, and the members. The media entity consists of the content and properties of all media. Furthermore, the member entity can request a viewing of the books and other information about the library. Finally, the library entity is the control system that keeps track of all the staff, media, and members. In the future, there will be some adjustments depending on the system we construct; hence, there will be some differences or some functions that we can add to our library to create an easily accessible and friendly environment for users. We will update our process along with those changes in the next reports if needed.
 
 Usage of the System
@@ -9,6 +10,7 @@ The system described in this report is run via Jar File with Java versions 16 an
 To date, we have compiled two different versions of the application, an Alpha version described in Assignment 9, which makes use of simple console interactions, and a more complete version described in Assignment 10, which makes use of a login system and graphical user interfaces. 
 
 Using the Console Application
+
 The Library System in Assignment 9 consists of a terminal based selection program, which creates interactions with the database depending on the option selected by the user.
  OpenVPN connections to the Toronto Metropolitan network are required to use the system properly, as the interactions with the database will not execute successfully otherwise.
 
