@@ -32,12 +32,3 @@ When a user logs in, they are presented by a panel which allows them to make spe
 If the user chooses to add or delete data, they will be presented with a screen which allows them to add and delete media and member accounts. It was chosen to not allow the user to modify the history of transactions due to the possibility that they may tamper with the data. Functionality is planned to allow librarians to interact and view transactions and feedback tables.
 
 
-Library System Graphical User Interface:
-![Screenshot 2024-01-16 212050](https://github.com/J-Talon/CPS510FX/assets/130938825/5895a78a-f924-4b83-8efb-51632e411708)
-![Screenshot 2024-01-16 212137](https://github.com/J-Talon/CPS510FX/assets/130938825/c1a34920-3d13-44e8-be41-7e2aa956aca8)
-![Screenshot 2024-01-16 212200](https://github.com/J-Talon/CPS510FX/assets/130938825/cb634780-e536-4118-967d-1b667feaeb0f)
-![Screenshot 2024-01-16 212218](https://github.com/J-Talon/CPS510FX/assets/130938825/989bb0bb-bf35-4929-903c-4928d2721b37)
-![Screenshot 2024-01-16 212233](https://github.com/J-Talon/CPS510FX/assets/130938825/96eba946-48de-4838-8d2d-8724dd39343d)
-![Screenshot 2024-01-16 212257](https://github.com/J-Talon/CPS510FX/assets/130938825/123b19b3-0a90-4172-889f-8f58fe2215b6)
-![Screenshot 2024-01-16 212316](https://github.com/J-Talon/CPS510FX/assets/130938825/9747300f-e752-43f2-bccf-ecbfe1d13fca)
-![Screenshot 2024-01-16 212332](https://github.com/J-Talon/CPS510FX/assets/130938825/eca5c901-7202-4369-9126-745d9a2aa7be)
